@@ -15,7 +15,7 @@ RSpec.describe GameBoard do
 
       expect(game_board.board).to eq([])
       expect(game_board.space).to eq(".")
-      expect(game_board.columns).to eq([])
+      expect(game_board.column).to eq([])
     end
   end
 
