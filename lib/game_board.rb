@@ -1,9 +1,31 @@
 class GameBoard
-  attr_reader :board, :space, :column
+  attr_reader :board,
+              :space,
+              :column_1,
+              :column_2,
+              :column_3,
+              :column_4,
+              :column_5,
+              :column_6,
+              :column_7
 
   def initialize
-    @board = []
     @space = "."
-    @column = []
+    @column_1 = ["A"]
+    @column_2 = ["B"]
+    @column_3 = ["C"]
+    @column_4 = ["D"]
+    @column_5 = ["E"]
+    @column_6 = ["F"]
+    @column_7 = ["G"]
+    @board = [@column_1, @column_2, @column_3, @column_4, @column_5, @column_6, @column_7]
+  end
+  
+  def add_spaces
+    @board.map do|column|
+      6.times do
+        column << @space
+      end
+    end
   end
 end
