@@ -13,7 +13,7 @@ RSpec.describe Player do
     it "has readable attributes" do
       player = Player.new("X")
 
-      expect(player.token).to eq("X")
+      expect(player.player_token).to eq("X")
     end
   end
 
