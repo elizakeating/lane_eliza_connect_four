@@ -23,8 +23,10 @@ class GameBoard
   
   def add_spaces
     @board.map do|column|
-      6.times do
-        column << @space
+      if column.count < 7
+        (7 - column.count).times do
+          column.insert(1, @space)
+        end
       end
     end
   end
