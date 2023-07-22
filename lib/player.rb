@@ -1,8 +1,8 @@
 class Player
   attr_reader :token
 
-  def initialize(token)
-    @token = token
+  def initialize(player_token)
+    @player_token = token
   end
   
   def choose_column(column)
@@ -15,7 +15,7 @@ class Player
           game_board.column_1.delete(space)
         end
       }
-      game_board.column_1.insert(1, @token)
+      game_board.column_1.insert(1, @player_token)
       game_board.add_spaces
       require 'pry';binding.pry
     end
