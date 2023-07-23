@@ -1,4 +1,6 @@
+require "./lib/turnable"
 class Player
+  include Turnable
   attr_reader :piece_type,
               :board
 
@@ -9,54 +11,61 @@ class Player
 
   def choose_column(column)
     if    column == "A"
-      @board.column_1.each do |space|
-        @board.column_1.delete(space) if space != "X" or space != "O"
-      end
-      @board.column_1.unshift(@piece_type)
-      @board.column_1.unshift("A")
-      @board.add_spaces
+      board.column_1.map{
+        |space| if space == "."
+          board.column_1.delete(space)
+        end
+      }
+      board.column_1.insert(1, @piece_type)
+      board.add_spaces
     elsif column == "B"
-      @board.column_2.each do |space|
-        @board.column_2.delete(space) if space != "X" or space != "O"
-      end
-      @board.column_2.unshift(@piece_type)
-      @board.column_2.unshift("B")
-      @board.add_spaces
+      board.column_2.map{
+        |space| if space == "."
+          board.column_2.delete(space)
+        end
+      }
+      board.column_2.insert(1, @piece_type)
+      board.add_spaces
     elsif column == "C"
-      @board.column_3.each do |space|
-        @board.column_3.delete(space) if space != "X" or space != "O"
-      end
-      @board.column_3.unshift(@piece_type)
-      @board.column_3.unshift("C")
-      @board.add_spaces
+      board.column_3.map{
+        |space| if space == "."
+          board.column_3.delete(space)
+        end
+      }
+      board.column_3.insert(1, @piece_type)
+      board.add_spaces
     elsif column == "D"
-      @board.column_4.each do |space|
-        @board.column_4.delete(space) if space != "X" or space != "O"
-      end
-      @board.column_4.unshift(@piece_type)
-      @board.column_4.unshift("D")
-      @board.add_spaces
+      board.column_4.map{
+        |space| if space == "."
+          board.column_4.delete(space)
+        end
+      }
+      board.column_4.insert(1, @piece_type)
+      board.add_spaces
     elsif column == "E"
-      @board.column_5.each do |space|
-        @board.column_5.delete(space) if space != "X" or space != "O"
-      end
-      @board.column_5.unshift(@piece_type)
-      @board.column_5.unshift("E")
-      @board.add_spaces
+      board.column_5.map{
+        |space| if space == "."
+          board.column_5.delete(space)
+        end
+      }
+      board.column_5.insert(1, @piece_type)
+      board.add_spaces
     elsif column == "F"
-      @board.column_6.each do |space|
-        @board.column_6.delete(space) if space != "X" or space != "O"
-      end
-      @board.column_6.unshift(@piece_type)
-      @board.column_6.unshift("F")
-      @board.add_spaces
+      board.column_6.map{
+        |space| if space == "."
+          board.column_6.delete(space)
+        end
+      }
+      board.column_6.insert(1, @piece_type)
+      board.add_spaces
     elsif column == "G"
-      @board.column_7.each do |space|
-        @board.column_7.delete(space) if space != "X" or space != "O"
-      end
-      @board.column_7.unshift(@piece_type)
-      @board.column_7.unshift("G")
-      @board.add_spaces
+      board.column_7.map{
+        |space| if space == "."
+          board.column_7.delete(space)
+        end
+      }
+      board.column_7.insert(1, @piece_type)
+      board.add_spaces
     end
   end
 end

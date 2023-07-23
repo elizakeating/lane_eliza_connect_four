@@ -1,4 +1,6 @@
+require "./lib/turnable"
 class CPU
+  include Turnable
   attr_reader :piece_type,
               :board
 
