@@ -43,7 +43,7 @@ RSpec.describe Player do
 
       player = Player.new("X", game_board)
 
-      player.choose_column("A")
+      player.choose_column("D")
 
       expect(game_board.board).to eq(
         [
