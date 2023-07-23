@@ -122,7 +122,7 @@ RSpec.describe Player do
       player.choose_column("D")
       player.choose_column("B")
       player.choose_column("C")
-      player.choose_column("E")
+      player.choose_column("F")
       
       expect(player.win?).to eq(false)
     end
