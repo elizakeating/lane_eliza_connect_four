@@ -22,7 +22,9 @@ class GameBoard
   end
   
   def add_spaces
+    # columns = [@column_1, @column_2, @column_3, @column_4, @column_5, @column_6, @column_7]
     @board.map do|column|
+    # columns.map do|column|
       if column.count < 7
         (7 - column.count).times do
           column.insert(1, @space)
@@ -30,4 +32,8 @@ class GameBoard
       end
     end
   end
+
+  # def print_board
+  #   add_spaces
+  # end
 end
