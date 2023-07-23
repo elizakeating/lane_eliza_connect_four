@@ -168,7 +168,7 @@ RSpec.describe Player do
       player.choose_column("E")
       player.choose_column("E")
       player.choose_column("E")
-      cpu.choose_column("F")
+      cpu.random_column("F")
       player.choose_column("F")
       player.choose_column("F")
       player.choose_column("F")
