@@ -7,7 +7,6 @@ class Cpu
 
   def random_letter
     letters = ["A", "B", "C", "D", "E", "F", "G"]
-
     letters.sample
   end
 end
