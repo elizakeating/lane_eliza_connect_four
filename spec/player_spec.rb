@@ -1,6 +1,4 @@
-require "./lib/player"
-require "./lib/cpu"
-require "./lib/game_board"
+require "spec_helper"
 
 RSpec.describe Player do
   describe "#initialize" do

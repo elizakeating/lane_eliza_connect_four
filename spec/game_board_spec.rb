@@ -1,4 +1,4 @@
-require "./lib/game_board"
+require "spec_helper"
 
 RSpec.describe GameBoard do
   describe "#initializes" do
