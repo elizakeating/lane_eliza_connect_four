@@ -29,6 +29,7 @@ module Turn
       column[3..6] == "O"
     }
       end
+    true if
       @game_board.board[0..3][1] == "X"
       ||
       @game_board.board[1..4][1] == "X"
