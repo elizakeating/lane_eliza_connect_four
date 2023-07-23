@@ -8,8 +8,16 @@ module Turn
   end
 
   def is_full?
+    if find_spaces == "."
+      false
+    else
+      true
+    end
+  end
+
+  def find_spaces
     @game_board.find {
-      |column| !column.include? "."
+      |column| column.include? "."
     }
   end
 
