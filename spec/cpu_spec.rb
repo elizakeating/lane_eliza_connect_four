@@ -1,5 +1,4 @@
 require "./lib/cpu"
-require "./lib/game_piece"
 require "./lib/game_board"
 
 RSpec.describe CPU do

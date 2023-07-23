@@ -1,5 +1,4 @@
 require "./lib/player"
-require "./lib/game_piece"
 require "./lib/game_board"
 
 RSpec.describe Player do
