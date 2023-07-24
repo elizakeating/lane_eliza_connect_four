@@ -22,7 +22,7 @@ class GameBoard
   end
   
   def add_spaces
-    @board.map do|column|
+    @board.each do|column|
       until column.count == 7
         column.insert(1, @space)
       end
