@@ -9,6 +9,12 @@ module Turnable
     end
   end
 
+  def win?
+    horizontal_win? ||
+    vertical_win? ||
+    diagonal_win?
+  end
+
   def vertical_win?
     win = false
     board.board.each do |column|
