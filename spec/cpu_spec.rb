@@ -177,6 +177,95 @@ RSpec.describe CPU do
     end
   end
 
+  describe "#win?" do
+    it "can win with 4 in a row diagaonally bottom left to top right starting with bottom row" do
+      game_board = GameBoard.new
+      game_board.add_spaces
+      
+      player = Player.new("X", game_board)
+      cpu = CPU.new("O", game_board)
+
+      cpu.random_column("A")
+      cpu.random_column("B")
+      cpu.random_column("B")
+      cpu.random_column("C")
+      cpu.random_column("C")
+      cpu.random_column("C")
+
+      player.choose_column("D")
+
+      cpu.random_column("D")
+      cpu.random_column("D")
+      cpu.random_column("D")
+
+      expect(cpu.win?).to eq(true)
+    end
+
+    it "can win with 4 in a row diagaonally bottom left to top right starting with 2nd row up from bottom" do
+      game_board = GameBoard.new
+      game_board.add_spaces
+      
+      player = Player.new("X", game_board)
+      cpu = CPU.new("O", game_board)
+
+      cpu.random_column("D")
+      cpu.random_column("D")
+      cpu.random_column("E")
+      cpu.random_column("E")
+      cpu.random_column("E")
+
+      player.choose_column("F")
+      player.choose_column("F")
+
+      cpu.random_column("F")
+      cpu.random_column("F")
+      cpu.random_column("G")
+      cpu.random_column("G")
+
+      player.choose_column("G")
+      player.choose_column("G")
+
+      cpu.random_column("G")
+
+      expect(cpu.win?).to eq(true)
+    end
+
+    it "can win with 4 in a row diagaonally bottom left to top right starting with 3rd row up from bottom" do
+      game_board = GameBoard.new
+      game_board.add_spaces
+      
+      player = Player.new("X", game_board)
+      cpu = CPU.new("O", game_board)
+
+      cpu.random_column("B")
+      cpu.random_column("B")
+      cpu.random_column("B")
+
+      player.choose_column("C")
+      player.choose_column("C")
+      player.choose_column("C")
+
+      cpu.random_column("C")
+      cpu.random_column("D")
+      cpu.random_column("D")
+
+      player.choose_column("D")
+
+      cpu.random_column("D")
+      cpu.random_column("D")
+      cpu.random_column("E")
+      cpu.random_column("E")
+      cpu.random_column("E")
+
+      player.choose_column("E")
+
+      cpu.random_column("E")
+      cpu.random_column("E")
+
+      expect(cpu.win?).to eq(true)
+    end
+  end
+
   describe "#diagonal_win?" do    
     it "returns true for diagonal win at bottom of board right to left cpu" do
       game_board = GameBoard.new
