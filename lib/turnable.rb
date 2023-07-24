@@ -105,6 +105,6 @@ module Turnable
     (board.board[3][4] == "O" &&
     board.board[4][3] == "O" &&
     board.board[5][2] == "O" &&
-    board.board[6][1] == "O") ||
+    board.board[6][1] == "O")
   end
 end
