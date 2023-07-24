@@ -22,10 +22,22 @@ class GameBoard
   end
   
   def add_spaces
-    @board.each do|column|
+    @board.each do |column|
       until column.count == 7
         column.insert(1, @space)
       end
     end
+  end
+
+  def print_board
+    counter = 0
+    7.times do
+      @board.each do |column|
+        print column[counter] + " "
+      end
+      counter += 1
+      puts ""
+    end
+    @board
   end
 end
