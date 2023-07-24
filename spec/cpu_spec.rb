@@ -122,7 +122,7 @@ RSpec.describe CPU do
       cpu.random_column("D")
       cpu.random_column("B")
       cpu.random_column("C")
-      cpu.random_column("E")
+      cpu.random_column("F")
       
       expect(cpu.win?).to eq(false)
     end
