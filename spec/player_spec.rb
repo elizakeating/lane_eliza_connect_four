@@ -122,7 +122,7 @@ RSpec.describe Player do
       player.choose_column("D")
       player.choose_column("B")
       player.choose_column("C")
-      player.choose_column("E")
+      player.choose_column("F")
       
       expect(player.win?).to eq(false)
     end
@@ -172,9 +172,97 @@ RSpec.describe Player do
       player.choose_column("F")
       player.choose_column("F")
       player.choose_column("F")
-
+      
       expect(player.win?).to eq(true)
     end
   end
+  
+  describe "#diagonal_win?" do    
+    it "returns true for diagonal win at bottom of board right to left player" do
+      game_board = GameBoard.new
+      game_board.add_spaces
+      
+      player = Player.new("X", game_board)
+      cpu = CPU.new("O", game_board)
 
+      player.choose_column("G")
+      player.choose_column("F")
+      player.choose_column("F")
+      player.choose_column("E")
+      player.choose_column("E")
+      player.choose_column("E")
+      cpu.random_column("D")
+      player.choose_column("D")
+      player.choose_column("D")
+      player.choose_column("D")
+      
+      expect(player.diagonal_win?).to eq(true)
+    end
+
+    it "returns true for diagonal win at second to bottom of board right to left player" do
+      game_board = GameBoard.new
+      game_board.add_spaces
+      
+      player = Player.new("X", game_board)
+      cpu = CPU.new("O", game_board)
+
+      player.choose_column("D")
+      player.choose_column("D")
+      player.choose_column("C")
+      player.choose_column("C")
+      player.choose_column("C")
+
+      cpu.random_column("B")
+
+      player.choose_column("B")
+      player.choose_column("B")
+      player.choose_column("B")
+      player.choose_column("A")
+
+      cpu.random_column("A")
+      
+      player.choose_column("A")
+      
+      cpu.random_column("A")
+      
+      player.choose_column("A")
+      expect(player.diagonal_win?).to eq(true)
+    end
+
+    it "returns true for diagon win at half of board right to left player" do
+      game_board = GameBoard.new
+      game_board.add_spaces
+      
+      player = Player.new("X", game_board)
+      cpu = CPU.new("O", game_board)
+      
+      player.choose_column("E")
+      player.choose_column("E")
+      player.choose_column("E")
+      
+      cpu.random_column("D")
+      
+      player.choose_column("D")
+      player.choose_column("D")
+      player.choose_column("D")
+      player.choose_column("C")
+      
+      cpu.random_column("C")
+      cpu.random_column("C")
+      
+      player.choose_column("C")
+      player.choose_column("C")
+      player.choose_column("B")
+      player.choose_column("B")
+      
+      cpu.random_column("B")
+      
+      player.choose_column("B")
+      
+      cpu.random_column("B")
+      
+      player.choose_column("B")
+      expect(player.diagonal_win?).to eq(true)
+    end
+  end
 end

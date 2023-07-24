@@ -66,14 +66,14 @@ RSpec.describe CPU do
       
       expect(cpu.is_full?).to eq(false)
       
-      cpu.choose_column("D")
+      cpu.random_column("D")
       
       expect(cpu.is_full?).to eq(false)
       
-      cpu.choose_column("D")
-      cpu.choose_column("B")
-      cpu.choose_column("C")
-      cpu.choose_column("E")
+      cpu.random_column("D")
+      cpu.random_column("B")
+      cpu.random_column("C")
+      cpu.random_column("F")
       
       expect(cpu.is_full?).to eq(false)
     end
@@ -87,25 +87,25 @@ RSpec.describe CPU do
       expect(cpu.is_full?).to eq(false)
       
       6.times do
-        cpu.choose_column("A")
+        cpu.random_column("A")
       end
       6.times do
-        cpu.choose_column("B")
+        cpu.random_column("B")
       end
       6.times do
-        cpu.choose_column("C")
+        cpu.random_column("C")
       end
       6.times do
-        cpu.choose_column("D")
+        cpu.random_column("D")
       end
       6.times do
-        cpu.choose_column("E")
+        cpu.random_column("E")
       end
       6.times do
-        cpu.choose_column("F")
+        cpu.random_column("F")
       end
       6.times do
-        cpu.choose_column("G")
+        cpu.random_column("G")
       end
       
       expect(cpu.is_full?).to eq(true)
@@ -119,10 +119,10 @@ RSpec.describe CPU do
       
       cpu = CPU.new("O", game_board)
       
-      cpu.choose_column("D")
-      cpu.choose_column("B")
-      cpu.choose_column("C")
-      cpu.choose_column("E")
+      cpu.random_column("D")
+      cpu.random_column("B")
+      cpu.random_column("C")
+      cpu.random_column("E")
       
       expect(cpu.win?).to eq(false)
     end
@@ -133,10 +133,10 @@ RSpec.describe CPU do
       
       cpu = CPU.new("O", game_board)
       
-      cpu.choose_column("A")
-      cpu.choose_column("B")
-      cpu.choose_column("C")
-      cpu.choose_column("D")
+      cpu.random_column("A")
+      cpu.random_column("B")
+      cpu.random_column("C")
+      cpu.random_column("D")
       
       expect(cpu.win?).to eq(true)
     end
@@ -147,10 +147,10 @@ RSpec.describe CPU do
       
       cpu = CPU.new("O", game_board)
       
-      cpu.choose_column("D")
-      cpu.choose_column("D")
-      cpu.choose_column("D")
-      cpu.choose_column("D")
+      cpu.random_column("D")
+      cpu.random_column("D")
+      cpu.random_column("D")
+      cpu.random_column("D")
       
       expect(cpu.win?).to eq(true)
     end
@@ -162,18 +162,107 @@ RSpec.describe CPU do
       player = Player.new("X", game_board)
       cpu = CPU.new("O", game_board)
       
-      cpu.choose_column("C")
-      cpu.choose_column("D")
-      cpu.choose_column("D")
-      cpu.choose_column("E")
-      cpu.choose_column("E")
-      cpu.choose_column("E")
+      cpu.random_column("C")
+      cpu.random_column("D")
+      cpu.random_column("D")
+      cpu.random_column("E")
+      cpu.random_column("E")
+      cpu.random_column("E")
       player.choose_column("F")
-      cpu.choose_column("F")
-      cpu.choose_column("F")
-      cpu.choose_column("F")
+      cpu.random_column("F")
+      cpu.random_column("F")
+      cpu.random_column("F")
 
       expect(cpu.win?).to eq(true)
+    end
+  end
+
+  describe "#diagonal_win?" do    
+    it "returns true for diagonal win at bottom of board right to left cpu" do
+      game_board = GameBoard.new
+      game_board.add_spaces
+      
+      player = Player.new("X", game_board)
+      cpu = CPU.new("O", game_board)
+
+      cpu.random_column("G")
+      cpu.random_column("F")
+      cpu.random_column("F")
+      cpu.random_column("E")
+      cpu.random_column("E")
+      cpu.random_column("E")
+      player.choose_column("D")
+      cpu.random_column("D")
+      cpu.random_column("D")
+      cpu.random_column("D")
+      
+      expect(cpu.diagonal_win?).to eq(true)
+    end
+
+    it "returns true for diagonal win at second to bottom of board right to left cpu" do
+      game_board = GameBoard.new
+      game_board.add_spaces
+      
+      player = Player.new("X", game_board)
+      cpu = CPU.new("O", game_board)
+
+      cpu.random_column("D")
+      cpu.random_column("D")
+      cpu.random_column("C")
+      cpu.random_column("C")
+      cpu.random_column("C")
+
+      player.choose_column("B")
+
+      cpu.random_column("B")
+      cpu.random_column("B")
+      cpu.random_column("B")
+      cpu.random_column("A")
+
+      player.choose_column("A")
+      
+      cpu.random_column("A")
+      
+      player.choose_column("A")
+      
+      cpu.random_column("A")
+      expect(cpu.diagonal_win?).to eq(true)
+    end
+
+    it "returns true for diagon win at half of board right to left cpu" do
+      game_board = GameBoard.new
+      game_board.add_spaces
+      
+      player = Player.new("X", game_board)
+      cpu = CPU.new("O", game_board)
+      
+      cpu.random_column("E")
+      cpu.random_column("E")
+      cpu.random_column("E")
+      
+      player.choose_column("D")
+      
+      cpu.random_column("D")
+      cpu.random_column("D")
+      cpu.random_column("D")
+      cpu.random_column("C")
+      
+      player.choose_column("C")
+      player.choose_column("C")
+      
+      cpu.random_column("C")
+      cpu.random_column("C")
+      cpu.random_column("B")
+      cpu.random_column("B")
+      
+      player.choose_column("B")
+      
+      cpu.random_column("B")
+      
+      player.choose_column("B")
+      
+      cpu.random_column("B")
+      expect(cpu.diagonal_win?).to eq(true)
     end
   end
 end
