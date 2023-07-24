@@ -1,71 +1,72 @@
 require "./lib/turnable"
 class Player
   include Turnable
-  attr_reader :piece_type,
-              :board
+  attr_reader :game_board
 
-  def initialize(piece_type, board)
+  attr_accessor :piece_type
+
+  def initialize(piece_type, game_board)
     @piece_type = piece_type
-    @board = board
+    @game_board = game_board
   end
 
   def choose_column(column)
-    if    column == "A"
-      board.column_1.map{
+    if column == "A"
+      game_board.column_1.map{
         |space| if space == "."
-          board.column_1.delete(space)
+          game_board.column_1.delete(space)
         end
       }
-      board.column_1.insert(1, @piece_type)
-      board.add_spaces
+      game_board.column_1.insert(1, @piece_type)
+      game_board.add_spaces
     elsif column == "B"
-      board.column_2.map{
+      game_board.column_2.map{
         |space| if space == "."
-          board.column_2.delete(space)
+          game_board.column_2.delete(space)
         end
       }
-      board.column_2.insert(1, @piece_type)
-      board.add_spaces
+      game_board.column_2.insert(1, @piece_type)
+      game_board.add_spaces
     elsif column == "C"
-      board.column_3.map{
+      game_board.column_3.map{
         |space| if space == "."
-          board.column_3.delete(space)
+          game_board.column_3.delete(space)
         end
       }
-      board.column_3.insert(1, @piece_type)
-      board.add_spaces
+      game_board.column_3.insert(1, @piece_type)
+      game_board.add_spaces
     elsif column == "D"
-      board.column_4.map{
+      game_board.column_4.map{
         |space| if space == "."
-          board.column_4.delete(space)
+          game_board.column_4.delete(space)
         end
       }
-      board.column_4.insert(1, @piece_type)
-      board.add_spaces
+      game_board.column_4.insert(1, @piece_type)
+      game_board.add_spaces
     elsif column == "E"
-      board.column_5.map{
+      game_board.column_5.map{
         |space| if space == "."
-          board.column_5.delete(space)
+          game_board.column_5.delete(space)
         end
       }
-      board.column_5.insert(1, @piece_type)
-      board.add_spaces
+      game_board.column_5.insert(1, @piece_type)
+      game_board.add_spaces
     elsif column == "F"
-      board.column_6.map{
+      game_board.column_6.map{
         |space| if space == "."
-          board.column_6.delete(space)
+          game_board.column_6.delete(space)
         end
       }
-      board.column_6.insert(1, @piece_type)
-      board.add_spaces
+      game_board.column_6.insert(1, @piece_type)
+      game_board.add_spaces
     elsif column == "G"
-      board.column_7.map{
+      game_board.column_7.map{
         |space| if space == "."
-          board.column_7.delete(space)
+          game_board.column_7.delete(space)
         end
       }
-      board.column_7.insert(1, @piece_type)
-      board.add_spaces
+      game_board.column_7.insert(1, @piece_type)
+      game_board.add_spaces
     end
   end
 end
