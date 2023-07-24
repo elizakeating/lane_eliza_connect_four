@@ -30,7 +30,7 @@ RSpec.describe Player do
 
         player = Player.new("X", game_board)
 
-        expect(player.board).to be_a(GameBoard)
+        expect(player.game_board).to be_a(GameBoard)
       end
     end
   
