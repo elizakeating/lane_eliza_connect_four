@@ -30,7 +30,7 @@ RSpec.describe CPU do
 
       cpu = CPU.new("O", game_board)
       
-      expect(cpu.board).to be_a(GameBoard)
+      expect(cpu.game_board).to be_a(GameBoard)
     end
   end
   
