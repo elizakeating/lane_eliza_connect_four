@@ -176,4 +176,93 @@ RSpec.describe CPU do
       expect(cpu.win?).to eq(true)
     end
   end
+
+  describe "#diagonal_win?" do    
+    it "returns true for diagonal win at bottom of board right to left cpu" do
+      game_board = GameBoard.new
+      game_board.add_spaces
+      
+      player = Player.new("X", game_board)
+      cpu = CPU.new("O", game_board)
+
+      cpu.random_column("G")
+      cpu.random_column("F")
+      cpu.random_column("F")
+      cpu.random_column("E")
+      cpu.random_column("E")
+      cpu.random_column("E")
+      player.choose_column("D")
+      cpu.random_column("D")
+      cpu.random_column("D")
+      cpu.random_column("D")
+      
+      expect(cpu.diagonal_win?).to eq(true)
+    end
+
+    it "returns true for diagonal win at second to bottom of board right to left cpu" do
+      game_board = GameBoard.new
+      game_board.add_spaces
+      
+      player = Player.new("X", game_board)
+      cpu = CPU.new("O", game_board)
+
+      cpu.random_column("D")
+      cpu.random_column("D")
+      cpu.random_column("C")
+      cpu.random_column("C")
+      cpu.random_column("C")
+
+      player.choose_column("B")
+
+      cpu.random_column("B")
+      cpu.random_column("B")
+      cpu.random_column("B")
+      cpu.random_column("A")
+
+      player.choose_column("A")
+      
+      cpu.random_column("A")
+      
+      player.choose_column("A")
+      
+      cpu.random_column("A")
+      expect(cpu.diagonal_win?).to eq(true)
+    end
+
+    it "returns true for diagon win at half of board right to left cpu" do
+      game_board = GameBoard.new
+      game_board.add_spaces
+      
+      player = Player.new("X", game_board)
+      cpu = CPU.new("O", game_board)
+      
+      cpu.random_column("E")
+      cpu.random_column("E")
+      cpu.random_column("E")
+      
+      player.choose_column("D")
+      
+      cpu.random_column("D")
+      cpu.random_column("D")
+      cpu.random_column("D")
+      cpu.random_column("C")
+      
+      player.choose_column("C")
+      player.choose_column("C")
+      
+      cpu.random_column("C")
+      cpu.random_column("C")
+      cpu.random_column("B")
+      cpu.random_column("B")
+      
+      player.choose_column("B")
+      
+      cpu.random_column("B")
+      
+      player.choose_column("B")
+      
+      cpu.random_column("B")
+      expect(cpu.diagonal_win?).to eq(true)
+    end
+  end
 end
