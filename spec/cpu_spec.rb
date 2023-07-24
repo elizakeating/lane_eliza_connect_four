@@ -198,7 +198,7 @@ RSpec.describe CPU do
       cpu.random_column("D")
       cpu.random_column("D")
 
-      expect(cpu.win?).to eq(true)
+      expect(cpu.diagonal_win?).to eq(true)
     end
 
     it "can win with 4 in a row diagaonally bottom left to top right starting with 2nd row up from bottom" do
@@ -227,7 +227,7 @@ RSpec.describe CPU do
 
       cpu.random_column("G")
 
-      expect(cpu.win?).to eq(true)
+      expect(cpu.diagonal_win?).to eq(true)
     end
 
     it "can win with 4 in a row diagaonally bottom left to top right starting with 3rd row up from bottom" do
@@ -262,7 +262,7 @@ RSpec.describe CPU do
       cpu.random_column("E")
       cpu.random_column("E")
 
-      expect(cpu.win?).to eq(true)
+      expect(cpu.diagonal_win?).to eq(true)
     end
   end
 
