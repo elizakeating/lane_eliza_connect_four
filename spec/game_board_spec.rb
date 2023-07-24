@@ -50,4 +50,37 @@ RSpec.describe GameBoard do
       ])
     end
   end
+
+  describe "#print_board" do
+    it "can print the board with dynamic additions" do
+      game_board = GameBoard.new
+      game_board.add_spaces
+      
+      expect(game_board.print_board).to eq([
+        ["A", ".", ".", ".", ".", ".", "."],
+        ["B", ".", ".", ".", ".", ".", "."],
+        ["C", ".", ".", ".", ".", ".", "."],
+        ["D", ".", ".", ".", ".", ".", "."],
+        ["E", ".", ".", ".", ".", ".", "."],
+        ["F", ".", ".", ".", ".", ".", "."],
+        ["G", ".", ".", ".", ".", ".", "."]
+      ])
+      
+      player = Player.new("X", game_board)
+      cpu = CPU.new("O", game_board)
+
+      player.choose_column("A")
+      cpu.random_column("C")
+
+      expect(game_board.print_board).to eq([
+        ["A", ".", ".", ".", ".", ".", "X"],
+        ["B", ".", ".", ".", ".", ".", "."],
+        ["C", ".", ".", ".", ".", ".", "O"],
+        ["D", ".", ".", ".", ".", ".", "."],
+        ["E", ".", ".", ".", ".", ".", "."],
+        ["F", ".", ".", ".", ".", ".", "."],
+        ["G", ".", ".", ".", ".", ".", "."]
+      ])
+    end
+  end
 end
