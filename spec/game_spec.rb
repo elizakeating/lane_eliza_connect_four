@@ -13,7 +13,7 @@ RSpec.describe Game do
     it "had readable attributes" do
       game = Game.new
 
-      expect(game.board).to be_a(GameBoard)
+      expect(game.game_board).to be_a(GameBoard)
       expect(game.player).to be_a(Player)
       expect(game.cpu).to be_a(CPU)
     end
