@@ -178,6 +178,40 @@ RSpec.describe Player do
       expect(player.win?).to eq(true)
     end
   end
+
+  describe "#vertical_win?" do
+    it "returns true for a vertical win" do
+      game_board = GameBoard.new
+      game_board.add_spaces
+      
+      player = Player.new("X", game_board)
+      cpu = CPU.new("O", game_board)
+
+      player.choose_column("E")
+      player.choose_column("E")
+      player.choose_column("E")
+      player.choose_column("E")
+
+      expect(player.vertical_win?).to eq(true)
+    end
+  end
+
+  describe "#horizontal_win?" do
+    it "returns true for a horizontal win" do
+      game_board = GameBoard.new
+      game_board.add_spaces
+      
+      player = Player.new("X", game_board)
+      cpu = CPU.new("O", game_board)
+
+      player.choose_column("C")
+      player.choose_column("D")
+      player.choose_column("E")
+      player.choose_column("F")
+
+      expect(player.horizontal_win?).to eq(true)
+    end
+  end
   
   describe "#diagonal_win?" do    
     it "returns true for diagonal win at bottom of board right to left player" do
