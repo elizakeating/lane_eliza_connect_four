@@ -66,14 +66,14 @@ RSpec.describe CPU do
       
       expect(cpu.is_full?).to eq(false)
       
-      cpu.choose_column("D")
+      cpu.random_column("D")
       
       expect(cpu.is_full?).to eq(false)
       
-      cpu.choose_column("D")
-      cpu.choose_column("B")
-      cpu.choose_column("C")
-      cpu.choose_column("E")
+      cpu.random_column("D")
+      cpu.random_column("B")
+      cpu.random_column("C")
+      cpu.random_column("E")
       
       expect(cpu.is_full?).to eq(false)
     end
@@ -87,25 +87,25 @@ RSpec.describe CPU do
       expect(cpu.is_full?).to eq(false)
       
       6.times do
-        cpu.choose_column("A")
+        cpu.random_column("A")
       end
       6.times do
-        cpu.choose_column("B")
+        cpu.random_column("B")
       end
       6.times do
-        cpu.choose_column("C")
+        cpu.random_column("C")
       end
       6.times do
-        cpu.choose_column("D")
+        cpu.random_column("D")
       end
       6.times do
-        cpu.choose_column("E")
+        cpu.random_column("E")
       end
       6.times do
-        cpu.choose_column("F")
+        cpu.random_column("F")
       end
       6.times do
-        cpu.choose_column("G")
+        cpu.random_column("G")
       end
       
       expect(cpu.is_full?).to eq(true)
@@ -119,10 +119,10 @@ RSpec.describe CPU do
       
       cpu = CPU.new("O", game_board)
       
-      cpu.choose_column("D")
-      cpu.choose_column("B")
-      cpu.choose_column("C")
-      cpu.choose_column("E")
+      cpu.random_column("D")
+      cpu.random_column("B")
+      cpu.random_column("C")
+      cpu.random_column("E")
       
       expect(cpu.win?).to eq(false)
     end
@@ -133,10 +133,10 @@ RSpec.describe CPU do
       
       cpu = CPU.new("O", game_board)
       
-      cpu.choose_column("A")
-      cpu.choose_column("B")
-      cpu.choose_column("C")
-      cpu.choose_column("D")
+      cpu.random_column("A")
+      cpu.random_column("B")
+      cpu.random_column("C")
+      cpu.random_column("D")
       
       expect(cpu.win?).to eq(true)
     end
@@ -147,10 +147,10 @@ RSpec.describe CPU do
       
       cpu = CPU.new("O", game_board)
       
-      cpu.choose_column("D")
-      cpu.choose_column("D")
-      cpu.choose_column("D")
-      cpu.choose_column("D")
+      cpu.random_column("D")
+      cpu.random_column("D")
+      cpu.random_column("D")
+      cpu.random_column("D")
       
       expect(cpu.win?).to eq(true)
     end
@@ -162,16 +162,16 @@ RSpec.describe CPU do
       player = Player.new("X", game_board)
       cpu = CPU.new("O", game_board)
       
-      cpu.choose_column("C")
-      cpu.choose_column("D")
-      cpu.choose_column("D")
-      cpu.choose_column("E")
-      cpu.choose_column("E")
-      cpu.choose_column("E")
+      cpu.random_column("C")
+      cpu.random_column("D")
+      cpu.random_column("D")
+      cpu.random_column("E")
+      cpu.random_column("E")
+      cpu.random_column("E")
       player.choose_column("F")
-      cpu.choose_column("F")
-      cpu.choose_column("F")
-      cpu.choose_column("F")
+      cpu.random_column("F")
+      cpu.random_column("F")
+      cpu.random_column("F")
 
       expect(cpu.win?).to eq(true)
     end
