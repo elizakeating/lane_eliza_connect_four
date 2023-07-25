@@ -13,9 +13,17 @@ class Game
     welcome_message = "Welcome to Connect 4! Enter p to Play. Enter q to Quit."
     puts welcome_message
     p_or_q = gets.chomp.downcase
+    until p_or_q == "p" || p_or_q == "q"
+      puts "That is not a valid entry. Enter p to Play. Enter q to Quit."
+      p_or_q = gets.chomp.downcase
+    end
     if p_or_q == "p"
       puts "Choose your token. Enter x for X. Enter o for O."
       token = gets.chomp.downcase
+      until token == "x" || token == "o"
+        puts "That is not a valid entry. Enter x for X. Enter o for  O."
+        token = gets.chomp.downcase
+      end
       if token == "x"
         player.piece_type = "X"
         cpu.piece_type = "O"
