@@ -18,4 +18,12 @@ RSpec.describe Game do
       expect(game.cpu).to be_a(CPU)
     end
   end
+
+  describe "#welcome" do
+    it "welcomes the player" do
+      game = Game.new
+
+      expect(game.welcome).to eq("Welcome to Connect 4! Enter p to Play. Enter q to Quit.")
+    end
+  end
 end
