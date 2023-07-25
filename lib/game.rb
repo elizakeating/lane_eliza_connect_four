@@ -39,14 +39,6 @@ class Game
   end
 
   def turns
-  #   @game_board.board.each do |column|
-  #     column.each do |space|
-  #       if space == "." || space == "X" || space == "O"
-  #         column.delete(space)
-  #       end
-  #     end
-  #   end
-
     game_board.add_spaces
     game_board.print_board
     
@@ -61,6 +53,33 @@ class Game
         column_choice = gets.chomp.upcase
       end
 
+      columns_hash = {"A" => 0, "B" => 1, "C" => 2, "D" => 3, "E" => 4, "F" => 5, "G" => 6}
+
+      full_message = "That column is full. Please enter a-g to pick another column."
+
+      choosing = true
+
+      until choosing == false
+       counter = 0
+       game_board.board.each do |column|
+        column_full = !column.include?(".")
+        if counter == columns_hash[column_choice]
+         if column_full
+          full_message
+          column_choice = gets.chomp.upcase
+          if game_board.board[columns_hash[column_choice]].include?(".")
+           choosing = false
+           break
+          end
+         end
+         counter += 1
+        else
+         counter += 1
+        end
+       end
+       choosing = false
+      end
+
       player.choose_column(column_choice)
 
       game_board.print_board
@@ -72,6 +91,28 @@ class Game
       end
 
       cpu_column = column_array.sample
+
+      choosing = true
+
+      until choosing == false
+        counter = 0
+        game_board.board.each do |column|
+          column_full = !column.include?(".")
+          if counter == columns_hash[column_choice]
+            if column_full
+              cpu_column = column_array.sample
+              if game_board.board[columns_hash[column_choice]].include?(".")
+                choosing = false
+                break
+              end
+            end
+            counter += 1
+          else
+            counter += 1
+          end
+        end
+        choosing = false
+      end
 
       cpu.random_column(cpu_column)
 
@@ -95,36 +136,27 @@ class Game
     if end_condition == "player"
       win_message = "Congratulations! You won the game!"
       puts win_message
-      reset
+      @game_board = GameBoard.new
+      @player = Player.new("X", @game_board)
+      @cpu = CPU.new("O", @game_board)
+      welcome
       win_message
     elsif end_condition == "cpu"
       loss_message = "You're bad at this. You let a computer beat you when it wasn't even trying."
       puts loss_message
-      reset
+      @game_board = GameBoard.new
+      @player = Player.new("X", @game_board)
+      @cpu = CPU.new("O", @game_board)
+      welcome
       loss_message
     elsif end_condition == "full"
       full_message = "The board is full, so no one wins. How did this happen? Do you understand the rules?"
       puts full_message
-      reset
+      @game_board = GameBoard.new
+      @player = Player.new("X", @game_board)
+      @cpu = CPU.new("O", @game_board)
+      welcome
       full_message
     end
-  end
-
-  def reset
-    game_board.column_1.replace(["A"])
-    game_board.column_2.replace(["B"])
-    game_board.column_3.replace(["C"])
-    game_board.column_4.replace(["D"])
-    game_board.column_5.replace(["E"])
-    game_board.column_6.replace(["F"])
-    game_board.column_7.replace(["G"])
-    # game_board.column_1 = ["A"]
-    # game_board.column_2 = ["B"]
-    # game_board.column_3 = ["C"]
-    # game_board.column_4 = ["D"]
-    # game_board.column_5 = ["E"]
-    # game_board.column_6 = ["F"]
-    # game_board.column_7 = ["G"]
-    welcome
   end
 end
