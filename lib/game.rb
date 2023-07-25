@@ -31,6 +31,14 @@ class Game
   end
 
   def turns
+  #   @game_board.board.each do |column|
+  #     column.each do |space|
+  #       if space == "." || space == "X" || space == "O"
+  #         column.delete(space)
+  #       end
+  #     end
+  #   end
+
     game_board.add_spaces
     game_board.print_board
     
@@ -72,5 +80,42 @@ class Game
         break
       end
     end
+  end
+
+  def game_end(end_condition)
+    if end_condition == "player"
+      win_message = "Congratulations! You won the game!"
+      puts win_message
+      reset
+      win_message
+    elsif end_condition == "cpu"
+      loss_message = "You're bad at this. You let a computer beat you when it wasn't even trying."
+      puts loss_message
+      reset
+      loss_message
+    elsif end_condition == "full"
+      full_message = "The board is full, so no one wins. How did this happen? Do you understand the rules?"
+      puts full_message
+      reset
+      full_message
+    end
+  end
+
+  def reset
+    game_board.column_1.replace(["A"])
+    game_board.column_2.replace(["B"])
+    game_board.column_3.replace(["C"])
+    game_board.column_4.replace(["D"])
+    game_board.column_5.replace(["E"])
+    game_board.column_6.replace(["F"])
+    game_board.column_7.replace(["G"])
+    # game_board.column_1 = ["A"]
+    # game_board.column_2 = ["B"]
+    # game_board.column_3 = ["C"]
+    # game_board.column_4 = ["D"]
+    # game_board.column_5 = ["E"]
+    # game_board.column_6 = ["F"]
+    # game_board.column_7 = ["G"]
+    welcome
   end
 end
