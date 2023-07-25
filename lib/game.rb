@@ -66,10 +66,11 @@ class Game
       game_board.print_board
       puts "============="
 
-        if player.win?
-          game_end("player")
-          break
-        end
+      if player.win?
+        game_end("player")
+        break
+      end
+
       cpu_column = column_array.sample
 
       cpu.random_column(cpu_column)
