@@ -50,9 +50,14 @@ RSpec.describe Game do
     end
   end
 
-  # describe "#board_reset" do
-  #   it "resets the board for a new game" do
+  describe "#reset" do
+    it "resets the board for a new game" do
+      game = Game.new
+      game.game_board.add_spaces
 
-  #   end
-  # end
+      game.reset
+
+      expect(game.game_board.board).to eq([["A"], ["B"], ["C"], ["D"], ["E"], ["F"], ["G"]])
+    end
+  end
 end
