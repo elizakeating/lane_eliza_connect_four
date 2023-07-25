@@ -23,7 +23,7 @@ RSpec.describe Game do
     it "welcomes the player" do
       game = Game.new
 
-      expect(game.welcome).to eq("Welcome to Connect 4! Enter P to Play or Q to Quit")
+      expect(game.welcome).to eq("Welcome to Connect 4! Enter p to Play. Enter q to Quit.")
     end
   end
 end
