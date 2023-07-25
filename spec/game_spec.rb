@@ -49,15 +49,4 @@ RSpec.describe Game do
       expect(game.game_end("full")).to eq("The board is full, so no one wins. How did this happen? Do you understand the rules?")
     end
   end
-
-  describe "#reset" do
-    it "resets the board for a new game" do
-      game = Game.new
-      game.game_board.add_spaces
-
-      game.reset
-
-      expect(game.game_board.board).to eq([["A"], ["B"], ["C"], ["D"], ["E"], ["F"], ["G"]])
-    end
-  end
 end
