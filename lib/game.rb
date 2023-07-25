@@ -53,6 +53,33 @@ class Game
         column_choice = gets.chomp.upcase
       end
 
+      columns_hash = {"A" => 0, "B" => 1, "C" => 2, "D" => 3, "E" => 4, "F" => 5, "G" => 6}
+
+      full_message = "That column is full. Please enter a-g to pick another column."
+
+      choosing = true
+
+      until choosing == false
+       counter = 0
+       game_board.board.each do |column|
+        column_full = !column.include?(".")
+        if counter == columns_hash[column_choice]
+         if column_full
+          full_message
+          column_choice = gets.chomp.upcase
+          if game_board.board[columns_hash[column_choice]].include?(".")
+           choosing = false
+           break
+          end
+         end
+         counter += 1
+        else
+         counter += 1
+        end
+       end
+       choosing = false
+      end
+
       player.choose_column(column_choice)
 
       game_board.print_board
@@ -64,6 +91,28 @@ class Game
       end
 
       cpu_column = column_array.sample
+
+      choosing = true
+
+      until choosing == false
+        counter = 0
+        game_board.board.each do |column|
+          column_full = !column.include?(".")
+          if counter == columns_hash[column_choice]
+            if column_full
+              cpu_column = column_array.sample
+              if game_board.board[columns_hash[column_choice]].include?(".")
+                choosing = false
+                break
+              end
+            end
+            counter += 1
+          else
+            counter += 1
+          end
+        end
+        choosing = false
+      end
 
       cpu.random_column(cpu_column)
 
@@ -88,18 +137,24 @@ class Game
       win_message = "Congratulations! You won the game!"
       puts win_message
       @game_board = GameBoard.new
+      @player = Player.new("X", @game_board)
+      @cpu = CPU.new("O", @game_board)
       welcome
       win_message
     elsif end_condition == "cpu"
       loss_message = "You're bad at this. You let a computer beat you when it wasn't even trying."
       puts loss_message
       @game_board = GameBoard.new
+      @player = Player.new("X", @game_board)
+      @cpu = CPU.new("O", @game_board)
       welcome
       loss_message
     elsif end_condition == "full"
       full_message = "The board is full, so no one wins. How did this happen? Do you understand the rules?"
       puts full_message
       @game_board = GameBoard.new
+      @player = Player.new("X", @game_board)
+      @cpu = CPU.new("O", @game_board)
       welcome
       full_message
     end
