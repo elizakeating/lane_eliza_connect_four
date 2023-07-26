@@ -29,198 +29,236 @@ module Turnable
   end
 
   def horizontal_win?
-    (game_board.board[0][1] == "X" &&
-    game_board.board[1][1] == "X" &&
-    game_board.board[2][1] == "X" &&
-    game_board.board[3][1] == "X") ||
-    (game_board.board[1][1] == "X" &&
-    game_board.board[2][1] == "X" &&
-    game_board.board[3][1] == "X" &&
-    game_board.board[4][1] == "X") ||
-    (game_board.board[2][1] == "X" &&
-    game_board.board[3][1] == "X" &&
-    game_board.board[4][1] == "X" &&
-    game_board.board[5][1] == "X") ||
-    (game_board.board[3][1] == "X" &&
-    game_board.board[4][1] == "X" &&
-    game_board.board[5][1] == "X" &&
-    game_board.board[6][1] == "X") ||
-    (game_board.board[0][2] == "X" &&
-    game_board.board[1][2] == "X" &&
-    game_board.board[2][2] == "X" &&
-    game_board.board[3][2] == "X") ||
-    (game_board.board[1][2] == "X" &&
-    game_board.board[2][2] == "X" &&
-    game_board.board[3][2] == "X" &&
-    game_board.board[4][2] == "X") ||
-    (game_board.board[2][2] == "X" &&
-    game_board.board[3][2] == "X" &&
-    game_board.board[4][2] == "X" &&
-    game_board.board[5][2] == "X") ||
-    (game_board.board[3][2] == "X" &&
-    game_board.board[4][2] == "X" &&
-    game_board.board[5][2] == "X" &&
-    game_board.board[6][2] == "X") ||
-    (game_board.board[0][3] == "X" &&
-    game_board.board[1][3] == "X" &&
-    game_board.board[2][3] == "X" &&
-    game_board.board[3][3] == "X") ||
-    (game_board.board[1][3] == "X" &&
-    game_board.board[2][3] == "X" &&
-    game_board.board[3][3] == "X" &&
-    game_board.board[4][3] == "X") ||
-    (game_board.board[2][3] == "X" &&
-    game_board.board[3][3] == "X" &&
-    game_board.board[4][3] == "X" &&
-    game_board.board[5][3] == "X") ||
-    (game_board.board[3][3] == "X" &&
-    game_board.board[4][3] == "X" &&
-    game_board.board[5][3] == "X" &&
-    game_board.board[6][3] == "X") ||
-    (game_board.board[0][4] == "X" &&
-    game_board.board[1][4] == "X" &&
-    game_board.board[2][4] == "X" &&
-    game_board.board[3][4] == "X") ||
-    (game_board.board[1][4] == "X" &&
-    game_board.board[2][4] == "X" &&
-    game_board.board[3][4] == "X" &&
-    game_board.board[4][4] == "X") ||
-    (game_board.board[2][4] == "X" &&
-    game_board.board[3][4] == "X" &&
-    game_board.board[4][4] == "X" &&
-    game_board.board[5][4] == "X") ||
-    (game_board.board[3][4] == "X" &&
-    game_board.board[4][4] == "X" &&
-    game_board.board[5][4] == "X" &&
-    game_board.board[6][4] == "X") ||
-    (game_board.board[0][5] == "X" &&
-    game_board.board[1][5] == "X" &&
-    game_board.board[2][5] == "X" &&
-    game_board.board[3][5] == "X") ||
-    (game_board.board[1][5] == "X" &&
-    game_board.board[2][5] == "X" &&
-    game_board.board[3][5] == "X" &&
-    game_board.board[4][5] == "X") ||
-    (game_board.board[2][5] == "X" &&
-    game_board.board[3][5] == "X" &&
-    game_board.board[4][5] == "X" &&
-    game_board.board[5][5] == "X") ||
-    (game_board.board[3][5] == "X" &&
-    game_board.board[4][5] == "X" &&
-    game_board.board[5][5] == "X" &&
-    game_board.board[6][5] == "X") ||
-    (game_board.board[0][6] == "X" &&
-    game_board.board[1][6] == "X" &&
-    game_board.board[2][6] == "X" &&
-    game_board.board[3][6] == "X") ||
-    (game_board.board[1][6] == "X" &&
-    game_board.board[2][6] == "X" &&
-    game_board.board[3][6] == "X" &&
-    game_board.board[4][6] == "X") ||
-    (game_board.board[2][6] == "X" &&
-    game_board.board[3][6] == "X" &&
-    game_board.board[4][6] == "X" &&
-    game_board.board[5][6] == "X") ||
-    (game_board.board[3][6] == "X" &&
-    game_board.board[4][6] == "X" &&
-    game_board.board[5][6] == "X" &&
-    game_board.board[6][6] == "X") ||
-    (game_board.board[0][1] == "O" &&
-    game_board.board[1][1] == "O" &&
-    game_board.board[2][1] == "O" &&
-    game_board.board[3][1] == "O") ||
-    (game_board.board[1][1] == "O" &&
-    game_board.board[2][1] == "O" &&
-    game_board.board[3][1] == "O" &&
-    game_board.board[4][1] == "O") ||
-    (game_board.board[2][1] == "O" &&
-    game_board.board[3][1] == "O" &&
-    game_board.board[4][1] == "O" &&
-    game_board.board[5][1] == "O") ||
-    (game_board.board[3][1] == "O" &&
-    game_board.board[4][1] == "O" &&
-    game_board.board[5][1] == "O" &&
-    game_board.board[6][1] == "O") ||
-    (game_board.board[0][2] == "O" &&
-    game_board.board[1][2] == "O" &&
-    game_board.board[2][2] == "O" &&
-    game_board.board[3][2] == "O") ||
-    (game_board.board[1][2] == "O" &&
-    game_board.board[2][2] == "O" &&
-    game_board.board[3][2] == "O" &&
-    game_board.board[4][2] == "O") ||
-    (game_board.board[2][2] == "O" &&
-    game_board.board[3][2] == "O" &&
-    game_board.board[4][2] == "O" &&
-    game_board.board[5][2] == "O") ||
-    (game_board.board[3][2] == "O" &&
-    game_board.board[4][2] == "O" &&
-    game_board.board[5][2] == "O" &&
-    game_board.board[6][2] == "O") ||
-    (game_board.board[0][3] == "O" &&
-    game_board.board[1][3] == "O" &&
-    game_board.board[2][3] == "O" &&
-    game_board.board[3][3] == "O") ||
-    (game_board.board[1][3] == "O" &&
-    game_board.board[2][3] == "O" &&
-    game_board.board[3][3] == "O" &&
-    game_board.board[4][3] == "O") ||
-    (game_board.board[2][3] == "O" &&
-    game_board.board[3][3] == "O" &&
-    game_board.board[4][3] == "O" &&
-    game_board.board[5][3] == "O") ||
-    (game_board.board[3][3] == "O" &&
-    game_board.board[4][3] == "O" &&
-    game_board.board[5][3] == "O" &&
-    game_board.board[6][3] == "O") ||
-    (game_board.board[0][4] == "O" &&
-    game_board.board[1][4] == "O" &&
-    game_board.board[2][4] == "O" &&
-    game_board.board[3][4] == "O") ||
-    (game_board.board[1][4] == "O" &&
-    game_board.board[2][4] == "O" &&
-    game_board.board[3][4] == "O" &&
-    game_board.board[4][4] == "O") ||
-    (game_board.board[2][4] == "O" &&
-    game_board.board[3][4] == "O" &&
-    game_board.board[4][4] == "O" &&
-    game_board.board[5][4] == "O") ||
-    (game_board.board[3][4] == "O" &&
-    game_board.board[4][4] == "O" &&
-    game_board.board[5][4] == "O" &&
-    game_board.board[6][4] == "O") ||
-    (game_board.board[0][5] == "O" &&
-    game_board.board[1][5] == "O" &&
-    game_board.board[2][5] == "O" &&
-    game_board.board[3][5] == "O") ||
-    (game_board.board[1][5] == "O" &&
-    game_board.board[2][5] == "O" &&
-    game_board.board[3][5] == "O" &&
-    game_board.board[4][5] == "O") ||
-    (game_board.board[2][5] == "O" &&
-    game_board.board[3][5] == "O" &&
-    game_board.board[4][5] == "O" &&
-    game_board.board[5][5] == "O") ||
-    (game_board.board[3][5] == "O" &&
-    game_board.board[4][5] == "O" &&
-    game_board.board[5][5] == "O" &&
-    game_board.board[6][5] == "O") ||
-    (game_board.board[0][6] == "O" &&
-    game_board.board[1][6] == "O" &&
-    game_board.board[2][6] == "O" &&
-    game_board.board[3][6] == "O") ||
-    (game_board.board[1][6] == "O" &&
-    game_board.board[2][6] == "O" &&
-    game_board.board[3][6] == "O" &&
-    game_board.board[4][6] == "O") ||
-    (game_board.board[2][6] == "O" &&
-    game_board.board[3][6] == "O" &&
-    game_board.board[4][6] == "O" &&
-    game_board.board[5][6] == "O") ||
-    (game_board.board[3][6] == "O" &&
-    game_board.board[4][6] == "O" &&
-    game_board.board[5][6] == "O" &&
-    game_board.board[6][6] == "O")
+    column_array = [0, 1, 2, 3, 4, 5, 6]
+    row_array = [1, 2, 3, 4, 5, 6]
+    grid_hash = {}
+    row_array.each do |num|
+      grid_hash[num] = column_array
+    end
+    grid_hash
+
+    pairs_array = []
+    grid_hash.each do |key, value|
+      value.each do |value|
+        pairs_array << [[value], [key]]
+      end
+    end
+    pairs_array
+
+    counter = 0
+    horizontal_win = false
+
+    6.times do
+      4.times do
+        while counter < 4
+          # require 'pry';binding.pry
+          if game_board.board[pairs_array[counter][0].to_s[1].to_i][pairs_array[counter][1].to_s[1].to_i] == "X" || game_board.board[pairs_array[counter][0].to_s[1].to_i][pairs_array[counter][1].to_s[1].to_i] == "O"
+            horizontal_win = true
+            break
+          end
+          counter += 1
+          pairs_array.shift
+        end
+        3.times do
+          pairs_array.shift
+        end
+      end
+    end
+    horizontal_win
+
+
+    # (game_board.board[0][1] == "X" &&
+    # game_board.board[1][1] == "X" &&
+    # game_board.board[2][1] == "X" &&
+    # game_board.board[3][1] == "X") ||
+    # (game_board.board[1][1] == "X" &&
+    # game_board.board[2][1] == "X" &&
+    # game_board.board[3][1] == "X" &&
+    # game_board.board[4][1] == "X") ||
+    # (game_board.board[2][1] == "X" &&
+    # game_board.board[3][1] == "X" &&
+    # game_board.board[4][1] == "X" &&
+    # game_board.board[5][1] == "X") ||
+    # (game_board.board[3][1] == "X" &&
+    # game_board.board[4][1] == "X" &&
+    # game_board.board[5][1] == "X" &&
+    # game_board.board[6][1] == "X") ||
+    # (game_board.board[0][2] == "X" &&
+    # game_board.board[1][2] == "X" &&
+    # game_board.board[2][2] == "X" &&
+    # game_board.board[3][2] == "X") ||
+    # (game_board.board[1][2] == "X" &&
+    # game_board.board[2][2] == "X" &&
+    # game_board.board[3][2] == "X" &&
+    # game_board.board[4][2] == "X") ||
+    # (game_board.board[2][2] == "X" &&
+    # game_board.board[3][2] == "X" &&
+    # game_board.board[4][2] == "X" &&
+    # game_board.board[5][2] == "X") ||
+    # (game_board.board[3][2] == "X" &&
+    # game_board.board[4][2] == "X" &&
+    # game_board.board[5][2] == "X" &&
+    # game_board.board[6][2] == "X") ||
+    # (game_board.board[0][3] == "X" &&
+    # game_board.board[1][3] == "X" &&
+    # game_board.board[2][3] == "X" &&
+    # game_board.board[3][3] == "X") ||
+    # (game_board.board[1][3] == "X" &&
+    # game_board.board[2][3] == "X" &&
+    # game_board.board[3][3] == "X" &&
+    # game_board.board[4][3] == "X") ||
+    # (game_board.board[2][3] == "X" &&
+    # game_board.board[3][3] == "X" &&
+    # game_board.board[4][3] == "X" &&
+    # game_board.board[5][3] == "X") ||
+    # (game_board.board[3][3] == "X" &&
+    # game_board.board[4][3] == "X" &&
+    # game_board.board[5][3] == "X" &&
+    # game_board.board[6][3] == "X") ||
+    # (game_board.board[0][4] == "X" &&
+    # game_board.board[1][4] == "X" &&
+    # game_board.board[2][4] == "X" &&
+    # game_board.board[3][4] == "X") ||
+    # (game_board.board[1][4] == "X" &&
+    # game_board.board[2][4] == "X" &&
+    # game_board.board[3][4] == "X" &&
+    # game_board.board[4][4] == "X") ||
+    # (game_board.board[2][4] == "X" &&
+    # game_board.board[3][4] == "X" &&
+    # game_board.board[4][4] == "X" &&
+    # game_board.board[5][4] == "X") ||
+    # (game_board.board[3][4] == "X" &&
+    # game_board.board[4][4] == "X" &&
+    # game_board.board[5][4] == "X" &&
+    # game_board.board[6][4] == "X") ||
+    # (game_board.board[0][5] == "X" &&
+    # game_board.board[1][5] == "X" &&
+    # game_board.board[2][5] == "X" &&
+    # game_board.board[3][5] == "X") ||
+    # (game_board.board[1][5] == "X" &&
+    # game_board.board[2][5] == "X" &&
+    # game_board.board[3][5] == "X" &&
+    # game_board.board[4][5] == "X") ||
+    # (game_board.board[2][5] == "X" &&
+    # game_board.board[3][5] == "X" &&
+    # game_board.board[4][5] == "X" &&
+    # game_board.board[5][5] == "X") ||
+    # (game_board.board[3][5] == "X" &&
+    # game_board.board[4][5] == "X" &&
+    # game_board.board[5][5] == "X" &&
+    # game_board.board[6][5] == "X") ||
+    # (game_board.board[0][6] == "X" &&
+    # game_board.board[1][6] == "X" &&
+    # game_board.board[2][6] == "X" &&
+    # game_board.board[3][6] == "X") ||
+    # (game_board.board[1][6] == "X" &&
+    # game_board.board[2][6] == "X" &&
+    # game_board.board[3][6] == "X" &&
+    # game_board.board[4][6] == "X") ||
+    # (game_board.board[2][6] == "X" &&
+    # game_board.board[3][6] == "X" &&
+    # game_board.board[4][6] == "X" &&
+    # game_board.board[5][6] == "X") ||
+    # (game_board.board[3][6] == "X" &&
+    # game_board.board[4][6] == "X" &&
+    # game_board.board[5][6] == "X" &&
+    # game_board.board[6][6] == "X") ||
+    # (game_board.board[0][1] == "O" &&
+    # game_board.board[1][1] == "O" &&
+    # game_board.board[2][1] == "O" &&
+    # game_board.board[3][1] == "O") ||
+    # (game_board.board[1][1] == "O" &&
+    # game_board.board[2][1] == "O" &&
+    # game_board.board[3][1] == "O" &&
+    # game_board.board[4][1] == "O") ||
+    # (game_board.board[2][1] == "O" &&
+    # game_board.board[3][1] == "O" &&
+    # game_board.board[4][1] == "O" &&
+    # game_board.board[5][1] == "O") ||
+    # (game_board.board[3][1] == "O" &&
+    # game_board.board[4][1] == "O" &&
+    # game_board.board[5][1] == "O" &&
+    # game_board.board[6][1] == "O") ||
+    # (game_board.board[0][2] == "O" &&
+    # game_board.board[1][2] == "O" &&
+    # game_board.board[2][2] == "O" &&
+    # game_board.board[3][2] == "O") ||
+    # (game_board.board[1][2] == "O" &&
+    # game_board.board[2][2] == "O" &&
+    # game_board.board[3][2] == "O" &&
+    # game_board.board[4][2] == "O") ||
+    # (game_board.board[2][2] == "O" &&
+    # game_board.board[3][2] == "O" &&
+    # game_board.board[4][2] == "O" &&
+    # game_board.board[5][2] == "O") ||
+    # (game_board.board[3][2] == "O" &&
+    # game_board.board[4][2] == "O" &&
+    # game_board.board[5][2] == "O" &&
+    # game_board.board[6][2] == "O") ||
+    # (game_board.board[0][3] == "O" &&
+    # game_board.board[1][3] == "O" &&
+    # game_board.board[2][3] == "O" &&
+    # game_board.board[3][3] == "O") ||
+    # (game_board.board[1][3] == "O" &&
+    # game_board.board[2][3] == "O" &&
+    # game_board.board[3][3] == "O" &&
+    # game_board.board[4][3] == "O") ||
+    # (game_board.board[2][3] == "O" &&
+    # game_board.board[3][3] == "O" &&
+    # game_board.board[4][3] == "O" &&
+    # game_board.board[5][3] == "O") ||
+    # (game_board.board[3][3] == "O" &&
+    # game_board.board[4][3] == "O" &&
+    # game_board.board[5][3] == "O" &&
+    # game_board.board[6][3] == "O") ||
+    # (game_board.board[0][4] == "O" &&
+    # game_board.board[1][4] == "O" &&
+    # game_board.board[2][4] == "O" &&
+    # game_board.board[3][4] == "O") ||
+    # (game_board.board[1][4] == "O" &&
+    # game_board.board[2][4] == "O" &&
+    # game_board.board[3][4] == "O" &&
+    # game_board.board[4][4] == "O") ||
+    # (game_board.board[2][4] == "O" &&
+    # game_board.board[3][4] == "O" &&
+    # game_board.board[4][4] == "O" &&
+    # game_board.board[5][4] == "O") ||
+    # (game_board.board[3][4] == "O" &&
+    # game_board.board[4][4] == "O" &&
+    # game_board.board[5][4] == "O" &&
+    # game_board.board[6][4] == "O") ||
+    # (game_board.board[0][5] == "O" &&
+    # game_board.board[1][5] == "O" &&
+    # game_board.board[2][5] == "O" &&
+    # game_board.board[3][5] == "O") ||
+    # (game_board.board[1][5] == "O" &&
+    # game_board.board[2][5] == "O" &&
+    # game_board.board[3][5] == "O" &&
+    # game_board.board[4][5] == "O") ||
+    # (game_board.board[2][5] == "O" &&
+    # game_board.board[3][5] == "O" &&
+    # game_board.board[4][5] == "O" &&
+    # game_board.board[5][5] == "O") ||
+    # (game_board.board[3][5] == "O" &&
+    # game_board.board[4][5] == "O" &&
+    # game_board.board[5][5] == "O" &&
+    # game_board.board[6][5] == "O") ||
+    # (game_board.board[0][6] == "O" &&
+    # game_board.board[1][6] == "O" &&
+    # game_board.board[2][6] == "O" &&
+    # game_board.board[3][6] == "O") ||
+    # (game_board.board[1][6] == "O" &&
+    # game_board.board[2][6] == "O" &&
+    # game_board.board[3][6] == "O" &&
+    # game_board.board[4][6] == "O") ||
+    # (game_board.board[2][6] == "O" &&
+    # game_board.board[3][6] == "O" &&
+    # game_board.board[4][6] == "O" &&
+    # game_board.board[5][6] == "O") ||
+    # (game_board.board[3][6] == "O" &&
+    # game_board.board[4][6] == "O" &&
+    # game_board.board[5][6] == "O" &&
+    # game_board.board[6][6] == "O")
   end
 
   def diagonal_win?
