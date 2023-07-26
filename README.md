@@ -7,7 +7,7 @@ This is a classic connect four game that takes in CLI from the player to decide 
 1. **This project did not provide an interaction pattern. How did you approach the design and problem solving process for this project?**
    - Before we did any actual coding, we had a brainstorm session in which we made an outline for the classes, attributes, and methods that we wanted. We also spent some time visualizing how we wanted our board to be broken down, which in this case was by column. We knew that breaking it down into columns would make checking our horizontal win condition check harder, but it was easier for us to build the functionality of dropping a piece in. We also decided to make our board an array of arrays instead of other methods because we knew the board was bounded and because it's easier to visualize the physical board as an array of arrays than it is with hashes.
 
-     ![Alt text](<Screenshot 2023-07-26 at 2.33.02 PM-1.png>)**<br />**<br />
+      ![Alt text](project_outline.png)**<br />**<br />
 
 2. **If you had one more day to work on this project, what would you work on?**
    
