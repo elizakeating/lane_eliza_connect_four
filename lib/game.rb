@@ -60,24 +60,24 @@ class Game
       choosing = true
 
       until choosing == false
-       counter = 0
-       game_board.board.each do |column|
-        column_full = !column.include?(".")
-        if counter == columns_hash[column_choice]
-         if column_full
-          full_message
-          column_choice = gets.chomp.upcase
-          if game_board.board[columns_hash[column_choice]].include?(".")
-           choosing = false
-           break
+        counter = 0
+        game_board.board.each do |column|
+          column_full = !column.include?(".")
+          if counter == columns_hash[column_choice]
+            if column_full
+              puts full_message
+              column_choice = gets.chomp.upcase
+            end
+            counter += 1
+          else
+            counter += 1
           end
-         end
-         counter += 1
-        else
-         counter += 1
+          if game_board.board[columns_hash[column_choice]].include?(".")
+            choosing = false
+          else
+            choosing = true
+          end
         end
-       end
-       choosing = false
       end
 
       player.choose_column(column_choice)
@@ -98,20 +98,20 @@ class Game
         counter = 0
         game_board.board.each do |column|
           column_full = !column.include?(".")
-          if counter == columns_hash[column_choice]
+          if counter == columns_hash[cpu_column]
             if column_full
               cpu_column = column_array.sample
-              if game_board.board[columns_hash[column_choice]].include?(".")
-                choosing = false
-                break
-              end
             end
             counter += 1
           else
             counter += 1
           end
         end
-        choosing = false
+        if game_board.board[columns_hash[cpu_column]].include?(".")
+          choosing = false
+        else
+          choosing = true
+        end
       end
 
       cpu.random_column(cpu_column)
